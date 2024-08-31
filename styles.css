@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    font-family: "Reboto", sans-serif;
+    
+}
+
+header {
+    background-color: rgb(11, 105, 11);
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    /* Colocado para separar os links*/
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        font-family: "Reboto", sans-serif;
+        text-decoration: none;
+        color: white;
+        position: relative;
+
+        /* Criando a linha que surge ao passar o mouse sobre os links, primeiro criando a "border" mas com altura e largura 0.*/
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -0.2rem;
+            right: 0;
+            width: 0%;
+            height: 0px;
+            background-color: white;            
+            transition: width 0.3s linear;  
+        }
+
+        /* Ajustando a altura e largura.*/
+        &:hover {
+            &::after {
+                width: 100%;
+                height: 1px;
+            };          
+        }
+    }
+
+    #homeLink {
+        font-size: 1.4rem;
+        margin-left: 4rem;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .menuLink {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+}
+
+section {
+    height: calc(100vh - 11rem);
+    background-color: white;
+    padding: 4rem;
+    background-size: 50%;
+    background-position: right;
+    background-repeat: no-repeat;
+    color: rgb(15, 83, 15); /* #0f530f */
+
+    h2 {
+        font-size: 2.6rem;
+    }
+
+    p {
+        width: 38rem;
+        margin-top: 3rem;
+        line-height: 1.4;
+        font-size: 1.2rem;
+        text-align: justify;
+        font-weight: 500;
+    }
+
+    &#home {
+        padding-top: 8.4rem;
+        color: rgb(11, 105, 11); /* #0b690b */
+        background-image: url('images/background1.png');
+        height: calc(100vh - 11.4rem);
+
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+        }
+    }
+
+    &#about {
+        background-image: url('images/background2.svg');
+        background-size: 40%;
+        background-position: 7% 50%;
+    }
+
+    &#education {
+        background-image: url('images/background3.svg');
+        background-size: 35%;
+        background-position: 90% 50%;
+    }
+
+    &#portfolio {
+        padding-left: 4rem;
+        position: relative;
+        h2 {
+            position:absolute;
+            top: 5%;
+            left: 52%;
+            text-align: end;
+        }
+
+        /* Criando os container para os cards de projeto. */
+        .projects {
+            margin-top: 5%;
+            display: flex;
+            
+            flex-direction: column;
+            justify-content: space-between;
+            
+            /* Dividindo a cada container em dois outros containers flex, um ao lado do outro */
+            .projectFlexbox {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .projectCard {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                text-decoration: none; 
+                background-color: white;
+                color: rgb(11, 105, 11);
+                margin: 1.5% 0;
+                border-radius: 10px;
+                width: 48%;
+                min-height: 40%;
+                border: 3px solid rgb(125, 216, 117);
+                transition: all 0.3s linear;
+
+                &:hover {
+                    cursor: pointer;
+                    border: 3px solid rgb(15, 83, 15);
+                }
+
+                img {
+                    width: 35rem;
+                    border-radius: 10px 0 0 10px;
+                }
+
+                .projectText {
+                    padding: 1.5rem;
+                    border-left: 2px solid rgb(15, 83, 15);
+                    
+                    h3 {
+                        font-size: 1.4rem;
+                        margin: 1rem 0;
+                    }
+
+                    p {
+                        width: 90%;
+                        text-align: justify;
+                        margin: 2rem 0;
+                    }
+                }
+            }
+        }
+    }
+
+    &#contact {
+        background-image: url('images/background4.svg');
+        background-size: 40%;
+        background-position: 5% 55%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        form {
+            margin-top: 6rem;
+            margin-right: 2rem;
+            width: 45%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #0f530f;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #0f530f;
+            border: 1px solid #0f530f;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s linear;
+        }
+        input[type="submit"]:hover {
+            background-color: white;
+            color: #0f530f;
+        }
+    }
+}
+
+section.inverse {
+    background-color: rgb(125, 216, 117);
+    padding-left: 55%;
+}
